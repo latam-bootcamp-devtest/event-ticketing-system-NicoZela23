@@ -18,7 +18,7 @@ export class EventsService {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    const { limit = 10, offset = 0 } = paginationDto;
+    const { limit = 12, offset = 0 } = paginationDto;
 
     const [events, total] = await this.eventRepository.findAndCount({
       take: limit,

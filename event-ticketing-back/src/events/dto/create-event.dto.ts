@@ -7,6 +7,6 @@ export class CreateEventDto {
   @IsDateString()
   date: string;
 
-  @Min(1, { message: 'Available Seats must be greater than 0' })
+  @Min(0, { message: 'Available Seats must be greater than 0' })
   availableSeats: number;
 }

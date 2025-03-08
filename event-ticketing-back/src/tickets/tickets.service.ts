@@ -20,7 +20,9 @@ export class TicketsService {
   async create(createTicketDto: CreateTicketDto) {
     const foundEvent = await this.eventService.findOne(createTicketDto.eventId);
     if (foundEvent.availableSeats <= 0) {
-      throw new ConflictException();
+      throw new ConflictException(
+        `Not enough available seats for ${foundEvent.name} event`,
+      );
     }
     this.eventService.decreaseSeats(createTicketDto.eventId);
 
